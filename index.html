@@ -31,6 +31,9 @@
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/index.min.js"></script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -89,7 +92,7 @@
           <li><a href="#services" class="nav-link" data-nav-link>Services</a></li>
           <li><a href="#seo-geo" class="nav-link" data-nav-link>SEO/GEO</a></li>
           <li><a href="#projects" class="nav-link" data-nav-link>Projects</a></li>
-          <li><a href="#results" class="nav-link" data-nav-link>Results</a></li>
+          <li><a href="#focus" class="nav-link" data-nav-link>Our Focus</a></li>
           <li><a href="#partners" class="nav-link" data-nav-link>Partners</a></li>
           <li><a href="#faq" class="nav-link" data-nav-link>FAQ</a></li>
         </ul>
@@ -146,7 +149,7 @@
       <a href="#services" class="mobile-nav-link" data-nav-link>Services</a>
       <a href="#seo-geo" class="mobile-nav-link" data-nav-link>SEO / GEO</a>
       <a href="#projects" class="mobile-nav-link" data-nav-link>Projects</a>
-      <a href="#results" class="mobile-nav-link" data-nav-link>Results</a>
+      <a href="#focus" class="mobile-nav-link" data-nav-link>Our Focus</a>
       <a href="#process" class="mobile-nav-link" data-nav-link>Process</a>
       <a href="#partners" class="mobile-nav-link" data-nav-link>Partners</a>
       <a href="#faq" class="mobile-nav-link" data-nav-link>FAQ</a>
@@ -173,7 +176,7 @@
         <div class="hero-content">
           <div class="hero-badge reveal-fade">
             <span class="badge-dot" aria-hidden="true"></span>
-            Trusted by 50+ startups &amp; agencies worldwide
+            SEO-First Web Studio for Startups &amp; Agencies
           </div>
 
           <h1 class="hero-title reveal-up">
@@ -199,15 +202,10 @@
           </div>
 
           <div class="hero-trust reveal-fade" style="--delay:0.24s">
-            <div class="trust-avatars" aria-hidden="true">
-              <span class="trust-avatar" style="--i:0">JS</span>
-              <span class="trust-avatar" style="--i:1">MK</span>
-              <span class="trust-avatar" style="--i:2">AR</span>
-              <span class="trust-avatar" style="--i:3">TP</span>
-            </div>
-            <div class="trust-text">
-              <div class="trust-stars" aria-label="5 out of 5 stars">★★★★★</div>
-              <span>5.0 from 40+ client reviews</span>
+            <div class="hero-value-pills">
+              <span class="hero-value-pill">⚡ Fast Delivery</span>
+              <span class="hero-value-pill">🔍 SEO-First</span>
+              <span class="hero-value-pill">🤝 Long-Term Support</span>
             </div>
           </div>
         </div>
@@ -229,8 +227,8 @@
               </svg>
             </div>
             <div class="hfc-content">
-              <span class="hfc-value">+348%</span>
-              <span class="hfc-label">Traffic Growth</span>
+              <span class="hfc-value">SEO-Ready</span>
+              <span class="hfc-label">Built-In Architecture</span>
             </div>
           </div>
 
@@ -242,8 +240,8 @@
               </svg>
             </div>
             <div class="hfc-content">
-              <span class="hfc-value">97/100</span>
-              <span class="hfc-label">SEO Score</span>
+              <span class="hfc-value">Mobile</span>
+              <span class="hfc-label">First Design</span>
             </div>
           </div>
 
@@ -255,34 +253,54 @@
               </svg>
             </div>
             <div class="hfc-content">
-              <span class="hfc-value">0.8s</span>
-              <span class="hfc-label">Page Speed</span>
+              <span class="hfc-value">Fast</span>
+              <span class="hfc-label">Page Load</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Stats bar -->
+      <!-- Value bar -->
       <div class="hero-stats reveal-fade" style="--delay:0.3s">
-        <div class="hero-stats-inner">
-          <div class="hero-stat">
-            <strong class="counter" data-target="50">50</strong><span>+</span>
-            <span class="stat-label">Projects Launched</span>
+        <div class="hero-stats-inner hero-value-bar">
+          <div class="hero-value-item">
+            <div class="hvi-icon">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5" />
+                <path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </div>
+            <span class="stat-label">SEO-First Development</span>
           </div>
           <div class="hero-stat-divider" aria-hidden="true"></div>
-          <div class="hero-stat">
-            <strong class="counter" data-target="340">340</strong><span>%</span>
-            <span class="stat-label">Avg. Traffic Growth</span>
+          <div class="hero-value-item">
+            <div class="hvi-icon">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M10 2l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6z" stroke="currentColor" stroke-width="1.5"
+                  stroke-linejoin="round" />
+              </svg>
+            </div>
+            <span class="stat-label">White-Label Collaboration</span>
           </div>
           <div class="hero-stat-divider" aria-hidden="true"></div>
-          <div class="hero-stat">
-            <strong class="counter" data-target="97">97</strong><span>/100</span>
-            <span class="stat-label">Lighthouse Score</span>
+          <div class="hero-value-item">
+            <div class="hvi-icon">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M10 2v8l4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5" />
+              </svg>
+            </div>
+            <span class="stat-label">Long-Term Support</span>
           </div>
           <div class="hero-stat-divider" aria-hidden="true"></div>
-          <div class="hero-stat">
-            <strong class="counter" data-target="100">100</strong><span>%</span>
-            <span class="stat-label">Client Satisfaction</span>
+          <div class="hero-value-item">
+            <div class="hvi-icon">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M3 14l4-4 3 3 4-5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </div>
+            <span class="stat-label">Growth-Oriented Solutions</span>
           </div>
         </div>
       </div>
@@ -569,7 +587,7 @@
       </div>
     </section>
 
-    <!-- ======= WHY CHOOSE US ======= -->
+    <!-- ======= WHY CHOOSE US / ABOUT ======= -->
     <section class="section section-white" id="why" aria-labelledby="why-h2">
       <div class="container">
         <div class="split-section">
@@ -584,7 +602,7 @@
                     stroke-linejoin="round" />
                 </svg>
               </div>
-              <div class="sb-content"><span class="sb-value">+340%</span><span class="sb-label">Traffic Growth</span>
+              <div class="sb-content"><span class="sb-value">SEO-First</span><span class="sb-label">Every Project</span>
               </div>
             </div>
             <div class="split-badge split-badge--br" style="--delay:0.5s">
@@ -594,7 +612,7 @@
                   <path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
                 </svg>
               </div>
-              <div class="sb-content"><span class="sb-value">50+</span><span class="sb-label">Projects Launched</span>
+              <div class="sb-content"><span class="sb-value">White-Label</span><span class="sb-label">Ready</span>
               </div>
             </div>
           </div>
@@ -602,9 +620,10 @@
           <!-- Copy -->
           <div class="split-copy reveal-up">
             <p class="eyebrow">Why Agencyyo</p>
-            <h2 id="why-h2">Premium Execution.<br><span class="gradient-text">Measurable Results.</span></h2>
-            <p>We combine design excellence with technical depth — creating websites that don't just look exceptional,
-              but perform, rank, and convert across every market and geography.</p>
+            <h2 id="why-h2">Built for Growth.<br><span class="gradient-text">Designed to Last.</span></h2>
+            <p>We work with founders, startups, and growing businesses to build fast, modern websites and SEO-focused
+              digital experiences. Every project is approached with clarity, transparency, and a genuine interest in
+              your long-term success.</p>
 
             <div class="feature-list">
               <div class="fi-item">
@@ -615,8 +634,8 @@
                   </svg>
                 </div>
                 <div class="fi-text">
-                  <h4>Blazing Fast Delivery</h4>
-                  <p>Most projects delivered in 2–4 weeks without sacrificing quality or performance standards.</p>
+                  <h4>Reliable, On-Time Delivery</h4>
+                  <p>Most projects delivered in 2–4 weeks. Clear timelines, no surprises, no last-minute delays.</p>
                 </div>
               </div>
               <div class="fi-item">
@@ -628,8 +647,8 @@
                 </div>
                 <div class="fi-text">
                   <h4>SEO &amp; GEO Built-In from Day One</h4>
-                  <p>Every project ships with solid SEO and GEO foundations — schema, metadata, hreflang, and
-                    crawlability by default.</p>
+                  <p>Every project ships with solid SEO foundations — schema, metadata, hreflang, and crawlability by
+                    default.</p>
                 </div>
               </div>
               <div class="fi-item">
@@ -640,8 +659,9 @@
                   </svg>
                 </div>
                 <div class="fi-text">
-                  <h4>Agency-Grade Quality</h4>
-                  <p>Framer-level design, senior-level code, and strategic SEO thinking at boutique studio pricing.</p>
+                  <h4>Long-Term Partnership Mindset</h4>
+                  <p>We build for scalability and stay available after launch — ongoing support, updates, and continuous
+                    improvements.</p>
                 </div>
               </div>
             </div>
@@ -696,10 +716,32 @@
               dominate search results and delight every visitor.</p>
 
             <div class="split-stats">
-              <div class="ss-item"><span class="ss-num">97</span><span class="ss-label">Avg. Lighthouse Score</span>
+              <div class="ss-item">
+                <span class="ss-icon">
+                  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.2" />
+                    <path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+                  </svg>
+                </span>
+                <span class="ss-label">Core Web Vitals Optimized</span>
               </div>
-              <div class="ss-item"><span class="ss-num">0.8s</span><span class="ss-label">Page Load Time</span></div>
-              <div class="ss-item"><span class="ss-num">90%</span><span class="ss-label">Keywords on Page 1</span></div>
+              <div class="ss-item">
+                <span class="ss-icon">
+                  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M8 2v6l3 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.2" />
+                  </svg>
+                </span>
+                <span class="ss-label">Fast by Default</span>
+              </div>
+              <div class="ss-item">
+                <span class="ss-icon">
+                  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M2 11l3-3 2.5 2.5 5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+                  </svg>
+                </span>
+                <span class="ss-label">Built to Rank</span>
+              </div>
             </div>
 
             <div class="feature-list">
@@ -769,7 +811,7 @@
                     stroke-linejoin="round" />
                 </svg>
               </div>
-              <div class="sb-content"><span class="sb-value">97/100</span><span class="sb-label">Lighthouse Score</span>
+              <div class="sb-content"><span class="sb-value">Lighthouse</span><span class="sb-label">Optimized</span>
               </div>
             </div>
           </div>
@@ -793,19 +835,31 @@
               <img src="images/project-saas.png" alt="ConvertFlow SaaS landing system mockup" width="640" height="360"
                 loading="lazy" decoding="async">
               <div class="project-metrics">
-                <span class="pm-badge pm-badge--green">+287% Traffic</span>
-                <span class="pm-badge pm-badge--blue">97 Score</span>
+                <span class="pm-badge pm-badge--blue">Next.js</span>
+                <span class="pm-badge pm-badge--green">Technical SEO</span>
               </div>
             </div>
             <div class="project-body">
               <p class="project-type">SaaS Platform</p>
               <h3>ConvertFlow — B2B Landing System</h3>
-              <p>A conversion-focused multi-section landing system for a B2B SaaS tool. Achieved 97 Lighthouse score and
-                287% organic traffic growth within 6 months of launch.</p>
-              <div class="project-stats">
-                <div class="pstat"><strong>+287%</strong><span>Organic Traffic</span></div>
-                <div class="pstat"><strong>97/100</strong><span>Lighthouse</span></div>
-                <div class="pstat"><strong>0.8s</strong><span>Load Time</span></div>
+              <p>A conversion-focused multi-section landing system for a B2B SaaS tool, built with Next.js and a full
+                technical SEO foundation.</p>
+              <div class="case-study-block">
+                <div class="cs-item">
+                  <span class="cs-label">Challenge</span>
+                  <p>The client needed a high-performance landing system with strong mobile experience and clear SEO
+                    architecture to compete in a crowded B2B market.</p>
+                </div>
+                <div class="cs-item">
+                  <span class="cs-label">Solution</span>
+                  <p>Designed and developed a modular, responsive landing system with SEO-ready architecture, semantic
+                    HTML, schema markup, and optimized Core Web Vitals.</p>
+                </div>
+                <div class="cs-item">
+                  <span class="cs-label">Outcome</span>
+                  <p>Improved search visibility, faster page loads, and a scalable foundation that supports ongoing
+                    content and feature growth.</p>
+                </div>
               </div>
               <div class="tag-list">
                 <span>Next.js</span><span>TypeScript</span><span>Technical SEO</span><span>UI/UX</span>
@@ -818,19 +872,31 @@
               <img src="images/performance.png" alt="Website performance and core web vitals optimization results"
                 width="640" height="360" loading="lazy" decoding="async">
               <div class="project-metrics">
-                <span class="pm-badge pm-badge--purple">+415% Rankings</span>
-                <span class="pm-badge pm-badge--green">96 Score</span>
+                <span class="pm-badge pm-badge--purple">WordPress</span>
+                <span class="pm-badge pm-badge--green">GEO SEO</span>
               </div>
             </div>
             <div class="project-body">
               <p class="project-type">Digital Agency Rebrand</p>
               <h3>SearchAxis — Agency Website Redesign</h3>
               <p>Full website redesign and technical SEO overhaul for a growing digital agency, rebuilt with
-                conversion-first architecture and local GEO SEO dominance strategy.</p>
-              <div class="project-stats">
-                <div class="pstat"><strong>+415%</strong><span>Keyword Rankings</span></div>
-                <div class="pstat"><strong>96/100</strong><span>Lighthouse</span></div>
-                <div class="pstat"><strong>+63%</strong><span>Conversions</span></div>
+                conversion-first architecture and local GEO SEO strategy.</p>
+              <div class="case-study-block">
+                <div class="cs-item">
+                  <span class="cs-label">Challenge</span>
+                  <p>The agency's existing website was outdated, slow, and not generating qualified leads. It lacked any
+                    SEO structure or local visibility strategy.</p>
+                </div>
+                <div class="cs-item">
+                  <span class="cs-label">Solution</span>
+                  <p>Redesigned the site from the ground up with a conversion-first layout, schema markup, GEO targeting
+                    implementation, and performance optimization.</p>
+                </div>
+                <div class="cs-item">
+                  <span class="cs-label">Outcome</span>
+                  <p>Significantly improved local search visibility, stronger brand positioning, and a modern site that
+                    better reflects the agency's quality of work.</p>
+                </div>
               </div>
               <div class="tag-list">
                 <span>WordPress</span><span>SEO Audit</span><span>Schema</span><span>GEO SEO</span>
@@ -840,22 +906,34 @@
 
           <article class="project-card reveal-up" style="--delay:160ms">
             <div class="project-visual">
-              <img src="images/seo-analytics.png" alt="NordShop e-commerce analytics showing performance improvement"
+              <img src="images/seo-analytics.png" alt="E-commerce website performance and analytics dashboard"
                 width="640" height="360" loading="lazy" decoding="async">
               <div class="project-metrics">
-                <span class="pm-badge pm-badge--orange">+180% Revenue</span>
-                <span class="pm-badge pm-badge--blue">0.6s Load</span>
+                <span class="pm-badge pm-badge--orange">React</span>
+                <span class="pm-badge pm-badge--blue">Core Web Vitals</span>
               </div>
             </div>
             <div class="project-body">
               <p class="project-type">E-Commerce Performance</p>
               <h3>NordShop — Speed &amp; SEO Transformation</h3>
-              <p>Complete performance overhaul for a mid-size e-commerce brand. Load time cut from 6.2s to 0.6s,
-                dramatically improving Core Web Vitals and organic revenue.</p>
-              <div class="project-stats">
-                <div class="pstat"><strong>+180%</strong><span>Organic Revenue</span></div>
-                <div class="pstat"><strong>6.2s→0.6s</strong><span>Load Time</span></div>
-                <div class="pstat"><strong>+94%</strong><span>Mobile Traffic</span></div>
+              <p>Complete performance overhaul for a mid-size e-commerce brand, focusing on Core Web Vitals, mobile UX,
+                and organic search improvements.</p>
+              <div class="case-study-block">
+                <div class="cs-item">
+                  <span class="cs-label">Challenge</span>
+                  <p>The store had slow page load times and poor mobile experience, leading to high bounce rates and
+                    weak organic search performance.</p>
+                </div>
+                <div class="cs-item">
+                  <span class="cs-label">Solution</span>
+                  <p>Rebuilt key pages with React, implemented image optimization, lazy loading, and fixed Core Web
+                    Vitals issues including LCP, CLS, and TTFB.</p>
+                </div>
+                <div class="cs-item">
+                  <span class="cs-label">Outcome</span>
+                  <p>Significantly faster page loads, improved mobile usability, and a stronger technical SEO foundation
+                    to support organic growth.</p>
+                </div>
               </div>
               <div class="tag-list">
                 <span>React</span><span>Performance</span><span>Core Web Vitals</span><span>E-comm SEO</span>
@@ -865,95 +943,81 @@
         </div>
 
         <div class="projects-cta reveal-up">
-          <p>Ready to become our next success story?</p>
-          <a class="btn btn-primary" href="#contact" id="projects-cta-btn">Start Your Project</a>
+          <p>Ready to start your next project?</p>
+          <a class="btn btn-primary" href="#contact" id="projects-cta-btn">Start a Project</a>
         </div>
       </div>
     </section>
 
-    <!-- ======= RESULTS ======= -->
-    <section class="section section-alt" id="results" aria-labelledby="results-h2">
+    <!-- ======= WHAT WE FOCUS ON ======= -->
+    <section class="section section-alt" id="focus" aria-labelledby="focus-h2">
       <div class="container">
         <div class="section-head reveal-up">
-          <p class="eyebrow">Client Results</p>
-          <h2 id="results-h2">Numbers That <span class="gradient-text">Speak for Themselves</span></h2>
-          <p>Real metrics from real clients — not projections. These results are verified across our entire portfolio.
-          </p>
+          <p class="eyebrow">Our Approach</p>
+          <h2 id="focus-h2">What We <span class="gradient-text">Focus On</span></h2>
+          <p>Every project we take on is built around the same core principles — technical excellence, strategic
+            thinking, and long-term value for your business.</p>
         </div>
 
-        <div class="results-grid">
-          <div class="result-card reveal-up" style="--delay:0ms">
-            <div class="result-chart">
-              <svg viewBox="0 0 200 72" preserveAspectRatio="none" aria-hidden="true">
-                <defs>
-                  <linearGradient id="cg1" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#4f46e5" stop-opacity="0.18" />
-                    <stop offset="100%" stop-color="#4f46e5" stop-opacity="0" />
-                  </linearGradient>
-                </defs>
-                <path d="M0 65 C30 55 50 38 75 42 C100 46 110 20 140 24 C165 28 180 50 200 38 L200 72 L0 72Z"
-                  fill="url(#cg1)" />
-                <path class="chart-line" d="M0 65 C30 55 50 38 75 42 C100 46 110 20 140 24 C165 28 180 50 200 38" />
-                <circle cx="140" cy="24" r="4" fill="#4f46e5" />
-                <circle cx="200" cy="38" r="3" fill="#4f46e5" opacity="0.5" />
+        <div class="focus-grid">
+          <div class="focus-card reveal-up" style="--delay:0ms">
+            <div class="focus-icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" />
+                <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
               </svg>
             </div>
-            <div class="result-info">
-              <strong class="result-number"><span class="counter" data-target="348">0</span>%</strong>
-              <span class="result-title">Average Traffic Growth</span>
-              <p class="result-desc">Across all SEO and web projects in the last 12 months</p>
-            </div>
-            <div class="result-trend">↑ +12% vs last quarter</div>
+            <h3>Technical SEO</h3>
+            <p>Schema markup, semantic HTML, crawlability, structured data, and meta optimization — built into every
+              project from day one, not added as an afterthought.</p>
           </div>
 
-          <div class="result-card reveal-up" style="--delay:80ms">
-            <div class="result-bars" aria-hidden="true">
-              <div class="rbar"><span style="--h:65%"></span><label>LCP</label></div>
-              <div class="rbar"><span style="--h:82%"></span><label>FID</label></div>
-              <div class="rbar"><span style="--h:96%"></span><label>CLS</label></div>
-              <div class="rbar"><span style="--h:78%"></span><label>TTFB</label></div>
-            </div>
-            <div class="result-info">
-              <strong class="result-number">97<span>/100</span></strong>
-              <span class="result-title">Lighthouse Performance</span>
-              <p class="result-desc">Average score across all production websites delivered</p>
-            </div>
-          </div>
-
-          <div class="result-card reveal-up" style="--delay:160ms">
-            <div class="result-donut" aria-hidden="true">
-              <svg viewBox="0 0 80 80">
-                <defs>
-                  <linearGradient id="dg1" x1="0" y1="0" x2="1" y2="1">
-                    <stop stop-color="#4f46e5" />
-                    <stop offset="1" stop-color="#10b981" />
-                  </linearGradient>
-                </defs>
-                <circle cx="40" cy="40" r="30" fill="none" stroke="#f1f5f9" stroke-width="10" />
-                <circle cx="40" cy="40" r="30" fill="none" stroke="url(#dg1)" stroke-width="10" stroke-dasharray="188.4"
-                  stroke-dashoffset="19" stroke-linecap="round" transform="rotate(-90 40 40)" />
+          <div class="focus-card reveal-up" style="--delay:80ms">
+            <div class="focus-icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round" />
               </svg>
-              <span>90%</span>
             </div>
-            <div class="result-info">
-              <strong class="result-number"><span class="counter" data-target="90">0</span>%</strong>
-              <span class="result-title">Keyword Ranking Rate</span>
-              <p class="result-desc">Target keywords reaching page 1 within 6 months</p>
-            </div>
+            <h3>Fast Performance</h3>
+            <p>We optimize Core Web Vitals, image delivery, and resource loading so your site is fast for real users and
+              scores well in Lighthouse audits.</p>
           </div>
 
-          <div class="result-card reveal-up" style="--delay:240ms">
-            <div class="result-pill-list">
-              <div class="result-pill"><span class="pill-dot green"></span>Conversions<strong>+63%</strong></div>
-              <div class="result-pill"><span class="pill-dot blue"></span>Load Time<strong>-72%</strong></div>
-              <div class="result-pill"><span class="pill-dot purple"></span>Rankings<strong>+415%</strong></div>
-              <div class="result-pill"><span class="pill-dot orange"></span>Revenue<strong>+180%</strong></div>
+          <div class="focus-card reveal-up" style="--delay:160ms">
+            <div class="focus-icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="5" y="2" width="14" height="20" rx="2" stroke="currentColor" stroke-width="1.5" />
+                <path d="M9 18h6M9 14h6M9 10h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
             </div>
-            <div class="result-info">
-              <strong class="result-number"><span class="counter" data-target="100">0</span>%</strong>
-              <span class="result-title">Client Satisfaction Rate</span>
-              <p class="result-desc">Every project delivered on time and above expectations</p>
+            <h3>Mobile Experience</h3>
+            <p>Mobile-first design is the default. Every layout, interaction, and typographic choice is tested and
+              refined for small screens before scaling up.</p>
+          </div>
+
+          <div class="focus-card reveal-up" style="--delay:240ms">
+            <div class="focus-icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
             </div>
+            <h3>Conversion-Oriented Design</h3>
+            <p>Beautiful interfaces that guide visitors toward clear actions. Design decisions are always grounded in
+              usability, trust signals, and business goals.</p>
+          </div>
+
+          <div class="focus-card reveal-up" style="--delay:320ms">
+            <div class="focus-icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5" />
+                <path d="M3 9h18M9 21V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3>Scalable Architecture</h3>
+            <p>Clean, maintainable code built to grow. Whether you add a blog, a new product line, or a multilingual
+              section — the foundation is already there.</p>
           </div>
         </div>
       </div>
@@ -1088,7 +1152,7 @@
     <!-- ======= PARTNERS ======= -->
     <section class="section section-alt" id="partners" aria-labelledby="partners-h2">
       <div class="container">
-        <div class="split-section" style="margin-bottom: var(--s-12);">
+        <div class="split-section partners-split" style="margin-bottom: var(--s-16);">
           <!-- Copy -->
           <div class="split-copy reveal-up">
             <p class="eyebrow">Agency Partnerships</p>
@@ -1096,10 +1160,10 @@
             <p>Scale your agency's capacity without the overhead of hiring. We become your invisible development team —
               delivering premium work under your brand, on time, every single project.</p>
 
-            <div class="partner-stats">
-              <div class="partner-stat"><strong>30+</strong><span>Agency Partners</span></div>
-              <div class="partner-stat"><strong>100%</strong><span>Confidentiality</span></div>
-              <div class="partner-stat"><strong>2–4wk</strong><span>Avg. Delivery</span></div>
+            <div class="partner-value-strip">
+              <div class="pvs-item"><span class="pvs-dot"></span>Fully Confidential</div>
+              <div class="pvs-item"><span class="pvs-dot"></span>2–4 Week Delivery</div>
+              <div class="pvs-item"><span class="pvs-dot"></span>Direct Access</div>
             </div>
 
             <div class="partner-features">
@@ -1112,9 +1176,9 @@
                   </svg>
                 </div>
                 <div>
-                  <h3>White-Label Development</h3>
+                  <h3>White-Label Delivery</h3>
                   <p>All deliverables fully branded under your agency. We operate as your silent technical team with
-                    complete confidentiality.</p>
+                    complete confidentiality — your clients, your brand.</p>
                 </div>
               </div>
 
@@ -1141,9 +1205,38 @@
                   </svg>
                 </div>
                 <div>
-                  <h3>Dedicated Communication</h3>
-                  <p>Your own Slack channel, weekly status updates, and direct project lead access — no account managers
-                    or bottlenecks.</p>
+                  <h3>Direct Communication</h3>
+                  <p>Reach us directly on Telegram, email, or your preferred channel. No account managers, no ticket
+                    queues — just fast, clear communication.</p>
+                </div>
+              </div>
+
+              <div class="partner-feature reveal-up" style="--delay:200ms">
+                <div class="pf-icon">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5" />
+                    <path d="M3 9h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                    <path d="M9 21V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                  </svg>
+                </div>
+                <div>
+                  <h3>Flexible Collaboration</h3>
+                  <p>Whether you need one-off project support or ongoing capacity, we adapt to your workflow —
+                    fixed-price projects, retainers, or per-sprint arrangements.</p>
+                </div>
+              </div>
+
+              <div class="partner-feature reveal-up" style="--delay:250ms">
+                <div class="pf-icon">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor"
+                      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div>
+                  <h3>Scalable Capacity</h3>
+                  <p>Take on more client projects without growing your headcount. We scale with you — available when
+                    demand spikes and reliable when timelines are tight.</p>
                 </div>
               </div>
             </div>
@@ -1161,8 +1254,8 @@
                     stroke-linejoin="round" />
                 </svg>
               </div>
-              <div class="sb-content"><span class="sb-value">30+ Partners</span><span class="sb-label">Agency
-                  Network</span></div>
+              <div class="sb-content"><span class="sb-value">White-Label</span><span class="sb-label">Fully
+                  Confidential</span></div>
             </div>
             <div class="split-badge split-badge--br" style="--delay:0.55s">
               <div class="sb-icon sb-icon--green">
@@ -1171,7 +1264,8 @@
                     stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </div>
-              <div class="sb-content"><span class="sb-value">100%</span><span class="sb-label">Confidential</span></div>
+              <div class="sb-content"><span class="sb-value">Direct Access</span><span class="sb-label">No
+                  middlemen</span></div>
             </div>
           </div>
         </div>
@@ -1180,10 +1274,10 @@
         <div class="partner-cta-card reveal-up">
           <div class="partner-cta-content">
             <h3>Ready to Scale Your Agency?</h3>
-            <p>Join 30+ agencies using Agencyyo as their white-label development partner. Book a quick intro call to
-              discuss your workflow and capacity needs.</p>
+            <p>We work as your invisible technical team — delivering premium web and SEO work under your brand. Let's
+              discuss how we can support your client projects.</p>
           </div>
-          <a class="btn-white" href="#contact" id="partner-cta-btn">Book Intro Call →</a>
+          <a class="btn-white" href="#contact" id="partner-cta-btn">Start a Conversation →</a>
         </div>
       </div>
     </section>
@@ -1319,123 +1413,66 @@
       </div>
     </section>
 
-    <!-- ======= TESTIMONIALS ======= -->
-    <section class="section section-alt" id="testimonials" aria-labelledby="testimonials-h2">
+    <!-- ======= WORK PRINCIPLES ======= -->
+    <section class="section section-alt" id="principles" aria-labelledby="principles-h2">
       <div class="container">
         <div class="section-head reveal-up">
-          <p class="eyebrow">Client Testimonials</p>
-          <h2 id="testimonials-h2">Trusted by Teams Who<br><span class="gradient-text">Care About Results</span></h2>
+          <p class="eyebrow">How We Work</p>
+          <h2 id="principles-h2">Work <span class="gradient-text">Principles</span></h2>
+          <p>These are the values that shape every client relationship and every project we take on — from initial brief
+            to final delivery and beyond.</p>
         </div>
 
-        <div class="testimonials-grid">
-          <article class="testimonial-card reveal-up" style="--delay:0ms">
-            <div class="tcard-top">
-              <div class="stars" aria-label="5 stars">★★★★★</div>
-              <span class="tcard-tag">SaaS Startup</span>
+        <div class="principles-grid">
+          <div class="principle-card reveal-up" style="--delay:0ms">
+            <div class="principle-icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor"
+                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
             </div>
-            <blockquote>
-              <p>"Agencyyo transformed our entire digital presence. Our website now loads in under a second, ranks for
-                80+ keywords, and our lead volume has tripled since launch."</p>
-            </blockquote>
-            <div class="tcard-author">
-              <div class="tcard-avatar">JM</div>
-              <div class="tcard-author-info">
-                <strong>James Mitchell</strong>
-                <span>CEO, CloudMetrics SaaS</span>
-              </div>
-            </div>
-          </article>
+            <h3>Clear Communication</h3>
+            <p>We keep you informed at every stage. No jargon, no black boxes — just honest updates, clear explanations,
+              and straightforward conversations about your project.</p>
+          </div>
 
-          <article class="testimonial-card reveal-up" style="--delay:80ms">
-            <div class="tcard-top">
-              <div class="stars" aria-label="5 stars">★★★★★</div>
-              <span class="tcard-tag">Digital Agency</span>
+          <div class="principle-card reveal-up" style="--delay:80ms">
+            <div class="principle-icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" />
+                <path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
             </div>
-            <blockquote>
-              <p>"As an SEO agency, we needed a white-label dev partner we could trust completely. Agencyyo delivers
-                premium work under our brand, on time, every single project."</p>
-            </blockquote>
-            <div class="tcard-author">
-              <div class="tcard-avatar">SR</div>
-              <div class="tcard-author-info">
-                <strong>Sofia Reyes</strong>
-                <span>Director, RankBridge Agency</span>
-              </div>
-            </div>
-          </article>
+            <h3>Fast Response Times</h3>
+            <p>We respond quickly and keep projects moving. When you have a question or feedback, you hear back from us
+              the same day — not the next week.</p>
+          </div>
 
-          <article class="testimonial-card reveal-up" style="--delay:160ms">
-            <div class="tcard-top">
-              <div class="stars" aria-label="5 stars">★★★★★</div>
-              <span class="tcard-tag">E-Commerce</span>
+          <div class="principle-card reveal-up" style="--delay:160ms">
+            <div class="principle-icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5" />
+                <path d="M16 16l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                <path d="M8 11l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
             </div>
-            <blockquote>
-              <p>"Our page speed went from 6 seconds to under 1. Organic traffic grew 287% in the first 4 months. These
-                results directly impacted our revenue. Absolutely recommend."</p>
-            </blockquote>
-            <div class="tcard-author">
-              <div class="tcard-avatar">DK</div>
-              <div class="tcard-author-info">
-                <strong>Daniel Kovacs</strong>
-                <span>Founder, NordShop.eu</span>
-              </div>
-            </div>
-          </article>
+            <h3>SEO-First Approach</h3>
+            <p>Search engine optimization is not an add-on — it's woven into the structure of every website we build.
+              You get a site that's built to be found from day one.</p>
+          </div>
 
-          <article class="testimonial-card testimonial-card--featured reveal-up" style="--delay:240ms">
-            <div class="tcard-top">
-              <div class="stars" aria-label="5 stars">★★★★★</div>
-              <span class="tcard-tag">Marketing Lead</span>
+          <div class="principle-card reveal-up" style="--delay:240ms">
+            <div class="principle-icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z" stroke="currentColor"
+                  stroke-width="1.5" />
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" stroke="currentColor" stroke-width="1.5" />
+              </svg>
             </div>
-            <blockquote>
-              <p>"Working with Agencyyo feels different. They think strategically, not just technically. Every section
-                of our new site was built with SEO, GEO, and conversion in mind from day one."</p>
-            </blockquote>
-            <div class="tcard-author">
-              <div class="tcard-avatar">TN</div>
-              <div class="tcard-author-info">
-                <strong>Thomas Ngo</strong>
-                <span>Head of Marketing, FinScale</span>
-              </div>
-            </div>
-            <div class="tcard-highlight">Most Impactful Project 2024</div>
-          </article>
-
-          <article class="testimonial-card reveal-up" style="--delay:320ms">
-            <div class="tcard-top">
-              <div class="stars" aria-label="5 stars">★★★★★</div>
-              <span class="tcard-tag">Local Business</span>
-            </div>
-            <blockquote>
-              <p>"The team took our outdated site and turned it into a modern, fast platform that generates real leads.
-                Our Google ranking in our local area improved dramatically."</p>
-            </blockquote>
-            <div class="tcard-author">
-              <div class="tcard-avatar">AP</div>
-              <div class="tcard-author-info">
-                <strong>Anna Petrova</strong>
-                <span>Owner, LegalEdge Consulting</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="testimonial-card reveal-up" style="--delay:400ms">
-            <div class="tcard-top">
-              <div class="stars" aria-label="5 stars">★★★★★</div>
-              <span class="tcard-tag">Startup Founder</span>
-            </div>
-            <blockquote>
-              <p>"Fast, professional, and genuinely invested in our success. They delivered a Framer-quality website
-                that exceeded our expectations in both design and SEO performance."</p>
-            </blockquote>
-            <div class="tcard-author">
-              <div class="tcard-avatar">ML</div>
-              <div class="tcard-author-info">
-                <strong>Maya Lindström</strong>
-                <span>Co-Founder, LaunchPad Studio</span>
-              </div>
-            </div>
-          </article>
+            <h3>Reliable Delivery</h3>
+            <p>We set realistic timelines and we stick to them. Every project is delivered on time with a clear scope —
+              no surprises, no scope creep, no excuses.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -1547,9 +1584,18 @@
         <div class="contact-layout">
           <div class="contact-copy reveal-up">
             <p class="eyebrow">Get in Touch</p>
-            <h2 id="contact-h2">Let's Build Something<br><span class="gradient-text">Exceptional Together</span></h2>
-            <p>Whether you need a new website, SEO &amp; GEO strategy, performance overhaul, or a white-label dev
-              partner — let's talk about what's possible for your business.</p>
+            <h2 id="contact-h2">Looking for a Reliable<br><span class="gradient-text">Web &amp; SEO Partner?</span></h2>
+            <p>Let's discuss your project. Whether you need a new website, SEO strategy, performance overhaul, or a
+              white-label dev partner — we'd love to hear about your goals.</p>
+
+            <a class="btn btn-primary contact-start-btn" href="mailto:hello@agencyyo.com"
+              id="contact-start-project-btn">
+              Start a Project
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </a>
 
             <div class="contact-channels">
               <a href="mailto:hello@agencyyo.com" class="contact-channel" id="contact-email-link">
@@ -1724,23 +1770,41 @@
           <h4>Company</h4>
           <ul>
             <li><a href="#projects">Case Studies</a></li>
-            <li><a href="#results">Results</a></li>
+            <li><a href="#focus">Our Focus</a></li>
             <li><a href="#process">Our Process</a></li>
             <li><a href="#partners">Agency Partners</a></li>
+            <li><a href="#principles">Work Principles</a></li>
             <li><a href="#tech">Tech Stack</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#faq">FAQ</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Get in Touch</h4>
+          <h4>Contact</h4>
           <a href="mailto:hello@agencyyo.com" class="footer-email">hello@agencyyo.com</a>
+          <div class="footer-contact-links">
+            <a href="https://t.me/agencyyo" class="footer-contact-link" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M14 2L1.5 7l4 1.5 1.5 5 2.5-2.5 3.5 2.5 1-11.5z" stroke="currentColor" stroke-width="1.2"
+                  stroke-linejoin="round" />
+              </svg>
+              Telegram
+            </a>
+            <a href="https://www.linkedin.com/company/agencyyo" class="footer-contact-link" target="_blank"
+              rel="noopener noreferrer">
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <rect x="1" y="1" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.2" />
+                <path d="M4.5 7v4M4.5 5.5v.01M7 11V9M7 8.5A1.5 1.5 0 0 1 10 8.5V11" stroke="currentColor"
+                  stroke-width="1.2" stroke-linecap="round" />
+              </svg>
+              LinkedIn
+            </a>
+          </div>
           <div class="footer-avail">
             <span class="avail-dot" aria-hidden="true"></span>
             Available for new projects
           </div>
-          <a class="footer-cta-btn" href="#contact" id="footer-cta-btn">Book Free Audit →</a>
+          <a class="footer-cta-btn" href="#contact" id="footer-cta-btn">Start a Project →</a>
         </div>
       </div>
 

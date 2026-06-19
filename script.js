@@ -8,6 +8,11 @@
    BOOTSTRAP
 ---------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize EmailJS when DOM is ready and EmailJS library is loaded
+  if (typeof emailjs !== 'undefined') {
+    emailjs.init('8dnyGyk_DkscsVTZ5');
+  }
+
   initHeader();
   initMobileMenu();
   initScrollReveal();
@@ -184,7 +189,7 @@ function initFAQ() {
 }
 
 /* ----------------------------------------------------------------
-   7. CONTACT FORM — validation & submit
+   7. CONTACT FORM — EmailJS integration
 ---------------------------------------------------------------- */
 function initContactForm() {
   const form   = document.querySelector('[data-contact-form]');
@@ -210,11 +215,14 @@ function initContactForm() {
 
     const name    = form.querySelector('[name="name"]');
     const email   = form.querySelector('[name="email"]');
+    const company = form.querySelector('[name="company"]');
+    const service = form.querySelector('[name="service"]');
     const message = form.querySelector('[name="message"]');
     const submitBtn = form.querySelector('.btn-submit');
     const btnText   = submitBtn?.querySelector('.btn-text');
 
-    if (!name?.value.trim() || !email?.value.trim() || !message?.value.trim()) {
+    // Validate required fields
+    if (!name?.value.trim() || !email?.value.trim() || !service?.value.trim() || !message?.value.trim()) {
       showStatus(status, '⚠ Please fill in all required fields.', 'error');
       form.style.animation = 'shake 400ms ease';
       setTimeout(() => form.style.animation = '', 420);
@@ -222,23 +230,46 @@ function initContactForm() {
     }
     if (!isValidEmail(email.value)) {
       showStatus(status, '⚠ Please enter a valid email address.', 'error');
-      email.focus(); return;
+      email.focus();
+      return;
     }
 
-    if (submitBtn) { submitBtn.disabled = true; if (btnText) btnText.textContent = 'Sending…'; }
+    // Disable submit button and show loading state
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      if (btnText) btnText.textContent = 'Sending…';
+    }
 
     try {
-      await new Promise(r => setTimeout(r, 1400)); // Replace with real fetch()
-      showStatus(status, '✓ Message sent! We\'ll get back to you within 24 hours.', 'success');
-      if (submitBtn) {
-        submitBtn.style.background = 'linear-gradient(135deg,#059669,#047857)';
-        setTimeout(() => { submitBtn.style.background = ''; }, 2800);
+      // Send email using EmailJS
+      const response = await emailjs.send('service_j7ex91g', 'template_s97paeh', {
+        from_name: name.value.trim(),
+        from_email: email.value.trim(),
+        company: company?.value.trim() || '',
+        service: service.value,
+        message: message.value.trim(),
+        to_email: 'hello@agencyyo.com'
+      });
+
+      if (response.status === 200) {
+        showStatus(status, '✓ Thank you! Your message has been sent successfully.', 'success');
+        if (submitBtn) {
+          submitBtn.style.background = 'linear-gradient(135deg,#059669,#047857)';
+          setTimeout(() => { submitBtn.style.background = ''; }, 2800);
+        }
+        form.reset();
+      } else {
+        throw new Error('Email send failed');
       }
-      form.reset();
-    } catch {
-      showStatus(status, '✗ Something went wrong. Email us at hello@agencyyo.com', 'error');
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      showStatus(status, '✗ Something went wrong. Please email us at hello@agencyyo.com', 'error');
     } finally {
-      if (submitBtn) { submitBtn.disabled = false; if (btnText) btnText.textContent = 'Send Message'; }
+      // Re-enable submit button
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        if (btnText) btnText.textContent = 'Send Message';
+      }
     }
   });
 }
