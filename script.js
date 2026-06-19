@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize EmailJS when DOM is ready and EmailJS library is loaded
   if (typeof emailjs !== 'undefined') {
     emailjs.init('8dnyGyk_DkscsVTZ5');
+    console.log('✓ EmailJS initialized with Public Key: 8dnyGyk_DkscsVTZ5');
+  } else {
+    console.warn('⚠ EmailJS library not found - check CDN load');
   }
 
   initHeader();
@@ -241,28 +244,44 @@ function initContactForm() {
     }
 
     try {
-      // Send email using EmailJS
-      const response = await emailjs.send('service_j7ex91g', 'template_s97paeh', {
+      // Verify EmailJS is loaded
+      if (typeof emailjs === 'undefined') {
+        throw new Error('EmailJS library not loaded');
+      }
+
+      // Log form data for debugging
+      const templateParams = {
         from_name: name.value.trim(),
         from_email: email.value.trim(),
-        company: company?.value.trim() || '',
+        company: company?.value.trim() || 'N/A',
         service: service.value,
-        message: message.value.trim(),
-        to_email: 'safaryansergey2025@gmail.com'
-      });
+        message: message.value.trim()
+      };
+      console.log('Sending EmailJS with params:', templateParams);
 
-      if (response.status === 200) {
-        showStatus(status, '✓ Thank you! Your message has been sent successfully.', 'success');
-        if (submitBtn) {
-          submitBtn.style.background = 'linear-gradient(135deg,#059669,#047857)';
-          setTimeout(() => { submitBtn.style.background = ''; }, 2800);
-        }
-        form.reset();
-      } else {
-        throw new Error('Email send failed');
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        'service_j7ex91g',
+        'template_s97paeh',
+        templateParams
+      );
+
+      console.log('EmailJS Response:', response);
+
+      // Success response from EmailJS
+      showStatus(status, '✓ Thank you! Your message has been sent successfully.', 'success');
+      if (submitBtn) {
+        submitBtn.style.background = 'linear-gradient(135deg,#059669,#047857)';
+        setTimeout(() => { submitBtn.style.background = ''; }, 2800);
       }
+      form.reset();
     } catch (error) {
-      console.error('EmailJS Error:', error);
+      console.error('EmailJS Error Details:', {
+        message: error.message,
+        status: error.status,
+        text: error.text,
+        fullError: error
+      });
       showStatus(status, '✗ Something went wrong. Please email us at safaryansergey2025@gmail.com', 'error');
     } finally {
       // Re-enable submit button
