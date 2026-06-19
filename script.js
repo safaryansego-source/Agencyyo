@@ -4,16 +4,20 @@
    ================================================================ */
 'use strict';
 
+const EMAILJS_SERVICE_ID = 'service_j7ex91g';
+const EMAILJS_TEMPLATE_ID = 'template_s97paeh';
+const EMAILJS_PUBLIC_KEY = '8dnyGyk_DkscsVTZ5';
+
 /* ----------------------------------------------------------------
    BOOTSTRAP
 ---------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize EmailJS when DOM is ready and EmailJS library is loaded
   if (typeof emailjs !== 'undefined') {
-    emailjs.init('8dnyGyk_DkscsVTZ5');
-    console.log('✓ EmailJS initialized with Public Key: 8dnyGyk_DkscsVTZ5');
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+    console.log('EmailJS initialized', { publicKey: EMAILJS_PUBLIC_KEY });
   } else {
-    console.warn('⚠ EmailJS library not found - check CDN load');
+    console.warn('EmailJS library not found - check SDK load');
   }
 
   initHeader();
@@ -200,7 +204,7 @@ function initContactForm() {
   if (!form || !status) return;
 
   // Real-time email validation
-  const emailInput = form.querySelector('[name="email"]');
+  const emailInput = form.querySelector('[name="from_email"]');
   if (emailInput) {
     emailInput.addEventListener('blur', () => {
       const valid = isValidEmail(emailInput.value);
@@ -216,8 +220,8 @@ function initContactForm() {
   form.addEventListener('submit', async e => {
     e.preventDefault();
 
-    const name    = form.querySelector('[name="name"]');
-    const email   = form.querySelector('[name="email"]');
+    const name    = form.querySelector('[name="from_name"]');
+    const email   = form.querySelector('[name="from_email"]');
     const company = form.querySelector('[name="company"]');
     const service = form.querySelector('[name="service"]');
     const message = form.querySelector('[name="message"]');
@@ -225,7 +229,7 @@ function initContactForm() {
     const btnText   = submitBtn?.querySelector('.btn-text');
 
     // Validate required fields
-    if (!name?.value.trim() || !email?.value.trim() || !service?.value.trim() || !message?.value.trim()) {
+    if (!name?.value.trim() || !email?.value.trim() || !company?.value.trim() || !service?.value.trim() || !message?.value.trim()) {
       showStatus(status, '⚠ Please fill in all required fields.', 'error');
       form.style.animation = 'shake 400ms ease';
       setTimeout(() => form.style.animation = '', 420);
@@ -249,21 +253,16 @@ function initContactForm() {
         throw new Error('EmailJS library not loaded');
       }
 
-      // Log form data for debugging
-      const templateParams = {
-        from_name: name.value.trim(),
-        from_email: email.value.trim(),
-        company: company?.value.trim() || 'N/A',
-        service: service.value,
-        message: message.value.trim()
-      };
-      console.log('Sending EmailJS with params:', templateParams);
+      console.log('Sending EmailJS form', {
+        serviceId: EMAILJS_SERVICE_ID,
+        templateId: EMAILJS_TEMPLATE_ID,
+        fields: Object.fromEntries(new FormData(form).entries())
+      });
 
-      // Send email using EmailJS
-      const response = await emailjs.send(
-        'service_j7ex91g',
-        'template_s97paeh',
-        templateParams
+      const response = await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        form
       );
 
       console.log('EmailJS Response:', response);
@@ -276,10 +275,13 @@ function initContactForm() {
       }
       form.reset();
     } catch (error) {
+      console.error('EmailJS Error:', error);
       console.error('EmailJS Error Details:', {
-        message: error.message,
-        status: error.status,
-        text: error.text,
+        name: error?.name,
+        message: error?.message,
+        status: error?.status,
+        text: error?.text,
+        stack: error?.stack,
         fullError: error
       });
       showStatus(status, '✗ Something went wrong. Please email us at safaryansergey2025@gmail.com', 'error');
