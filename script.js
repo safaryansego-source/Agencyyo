@@ -6,19 +6,15 @@
 
 const EMAILJS_SERVICE_ID = 'service_j7ex91g';
 const EMAILJS_TEMPLATE_ID = 'template_s97paeh';
-const EMAILJS_PUBLIC_KEY = '8dnyGyk_DkscsVTZ5';
 
 /* ----------------------------------------------------------------
    BOOTSTRAP
 ---------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize EmailJS when DOM is ready and EmailJS library is loaded
-  if (typeof emailjs !== 'undefined') {
-    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
-    console.log('EmailJS initialized', { publicKey: EMAILJS_PUBLIC_KEY });
-  } else {
-    console.warn('EmailJS library not found - check SDK load');
-  }
+  emailjs.init({
+    publicKey: "8dnyGyk_DkscsVTZ5"
+  });
+  console.log('EmailJS initialized', { type: typeof emailjs });
 
   initHeader();
   initMobileMenu();
@@ -248,9 +244,8 @@ function initContactForm() {
     }
 
     try {
-      // Verify EmailJS is loaded
-      if (typeof emailjs === 'undefined') {
-        throw new Error('EmailJS library not loaded');
+      if (!window.emailjs || typeof window.emailjs.sendForm !== 'function') {
+        throw new Error('EmailJS Browser SDK unavailable before submission');
       }
 
       console.log('Sending EmailJS form', {
@@ -259,7 +254,7 @@ function initContactForm() {
         fields: Object.fromEntries(new FormData(form).entries())
       });
 
-      const response = await emailjs.sendForm(
+      const response = await window.emailjs.sendForm(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         form
