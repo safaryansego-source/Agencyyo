@@ -248,7 +248,7 @@ function initContactForm() {
         company: company?.value.trim() || '',
         service: service.value,
         message: message.value.trim(),
-        to_email: 'hello@agencyyo.com'
+        to_email: 'safaryansergey2025@gmail.com'
       });
 
       if (response.status === 200) {
@@ -263,7 +263,7 @@ function initContactForm() {
       }
     } catch (error) {
       console.error('EmailJS Error:', error);
-      showStatus(status, '✗ Something went wrong. Please email us at hello@agencyyo.com', 'error');
+      showStatus(status, '✗ Something went wrong. Please email us at safaryansergey2025@gmail.com', 'error');
     } finally {
       // Re-enable submit button
       if (submitBtn) {
